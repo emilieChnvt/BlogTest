@@ -75,7 +75,7 @@ use Core\Session\Session;
 
 
 <div class="container">
-    <?= $pageContent = "salut"; ?>
+    <?= $pageContent?>
 </div>
 
 

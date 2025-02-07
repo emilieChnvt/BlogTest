@@ -17,4 +17,24 @@ class AlbumController extends Controller
             'albums' => $albums,
         ]);
     }
+    public function show(): Response
+    {
+        $id=null;
+        if(!empty($_GET['id'])&&ctype_digit($_GET['id']))
+        {
+            $id=$_GET['id'];
+        }
+        if(!$id)
+        {
+            return $this->redirect();
+        }
+
+        $album=$this->getRepository()->find($id);
+        if (!$album) {
+            return $this->redirect();
+        }
+        return $this->render('album/show', [
+            'album' => $album,
+        ]);
+    }
 }
