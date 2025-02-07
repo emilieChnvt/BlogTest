@@ -28,8 +28,8 @@ class Kernel
         $type = ucfirst($type); // Article
         $controllerName = "App\Controller\\".$type."Controller";
 
-        //$controller = new $controllerName();
-        //$controller->$action();
+        $controller = new $controllerName();
+        $controller->$action();
     }
 
 

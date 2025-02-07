@@ -13,5 +13,7 @@
             "name": "ESD Lyon B1 2425"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-pdo": "*"
+    }
 }

@@ -2,11 +2,17 @@
 
 namespace App\Entity;
 
+use App\Repository\AlbumRepository;
+use Attributes\TargetRepository;
+use Core\Attributes\Table;
+
+#[Table(name: 'album')]
+#[TargetRepository(repoName: AlbumRepository::class )]
 class Album
 {
-    private $id;
-    private $title;
-    private $auhtor;
+    private int $id;
+    private string $title;
+    private string $author;
 
     /**
      * @return mixed
@@ -35,17 +41,17 @@ class Album
     /**
      * @return mixed
      */
-    public function getAuhtor()
+    public function getAuthor()
     {
-        return $this->auhtor;
+        return $this->author;
     }
 
     /**
-     * @param mixed $auhtor
+     * @param mixed $author
      */
-    public function setAuhtor($auhtor): void
+    public function setAuthor($author): void
     {
-        $this->auhtor = $auhtor;
+        $this->author = $author;
     }
 
 

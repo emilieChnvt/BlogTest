@@ -1,1 +1,0 @@
-<h1>coucou je suis le template home</h1>

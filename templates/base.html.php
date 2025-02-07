@@ -8,7 +8,7 @@ use Core\Session\Session;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= $pageTitle ?></title>
+    <title><?= $pageTitle = "salut"; ?></title>
     <link rel="stylesheet" href="https://bootswatch.com/5/united/bootstrap.min.css">
 </head>
 <body>
@@ -75,7 +75,7 @@ use Core\Session\Session;
 
 
 <div class="container">
-    <?= $pageContent ?>
+    <?= $pageContent = "salut"; ?>
 </div>
 
 
