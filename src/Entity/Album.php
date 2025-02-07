@@ -17,7 +17,7 @@ class Album
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -35,13 +35,13 @@ class Album
      */
     public function setTitle($title): void
     {
-        $this->title = $title;
+         $this->title = $title;
     }
 
     /**
      * @return mixed
      */
-    public function getAuthor()
+    public function getAuthor(): string
     {
         return $this->author;
     }

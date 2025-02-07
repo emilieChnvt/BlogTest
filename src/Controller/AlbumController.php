@@ -36,4 +36,44 @@ class AlbumController extends Controller
             'album' => $album,
         ]);
     }
+    public function edit(): Response
+    {
+        $id=null;
+        if(!empty($_GET['id'])&&ctype_digit($_GET['id']))
+        {
+            $id=$_GET['id'];
+        }
+        if(!$id)
+        {
+            return $this->redirect();
+        }
+
+        $album=$this->getRepository()->find($id);
+        if (!$album) {
+            return $this->redirect();
+        }
+        $title=null;
+        $author=null;
+        if(!empty($_POST['title'])&&!empty($_POST['author']))
+        {
+            $title=$_POST['title'];
+            $author=$_POST['author'];
+        }
+        if ($title && $author)
+        {
+            $album->setTitle($title);
+            $album->setAuthor($author);
+            $id = $this->getRepository()->edit($album);
+
+
+            return $this->redirect([
+                "type"=>"album",
+                "action"=>"show",
+                "id" => $id
+            ]);
+        }
+        return $this->render('album/edit', [
+            'album' => $album,
+        ]);
+    }
 }
