@@ -72,6 +72,7 @@ class AlbumController extends Controller
                 "id" => $id
             ]);
         }
+
         return $this->render('album/edit', [
             'album' => $album,
         ]);
