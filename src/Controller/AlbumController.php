@@ -28,7 +28,6 @@ class AlbumController extends Controller
         {
             return $this->redirect();
         }
-
         $album=$this->getRepository()->find($id);
         if (!$album) {
             return $this->redirect();
