@@ -21,4 +21,5 @@ class AlbumRepository extends Repository
 
         return $album->getId();
     }
+
 }

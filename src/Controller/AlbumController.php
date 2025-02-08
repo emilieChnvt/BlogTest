@@ -77,4 +77,26 @@ class AlbumController extends Controller
             'album' => $album,
         ]);
     }
+
+    public function delete(): Response
+    {
+        $id=null;
+        if(!empty($_GET['id'])&&ctype_digit($_GET['id']))
+        {
+            $id=$_GET['id'];
+        }
+        if(!$id)
+        {
+            return $this->redirect();
+        }
+        $album=$this->getRepository()->find($id);
+        if (!$album) {
+            return $this->redirect();
+        }
+        $this->getRepository()->delete($album);
+        return $this->redirect([
+            "type"=>"album",
+            "action"=>"index"
+        ]);
+    }
 }
