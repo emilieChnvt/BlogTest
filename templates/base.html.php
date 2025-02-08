@@ -28,10 +28,10 @@ use Core\Session\Session;
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?type=article&action=addArticle">New Article</a>
+                    <a class="nav-link" href="?type=album&action=create">New Article</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?type=post&action=create">New Post</a>
+                    <a class="nav-link" href="?type=album&action=create">New Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?type=security&action=login">Sign In</a>

@@ -99,4 +99,29 @@ class AlbumController extends Controller
             "action"=>"index"
         ]);
     }
+    public function create(): Response
+    {
+        $album=new Album();
+        $title=null;
+        $author=null;
+        if(!empty($_POST['title'])&&!empty($_POST['author']))
+        {
+            $title=$_POST['title'];
+            $author=$_POST['author'];
+        }
+        if ($title && $author)
+        {
+            $album->setTitle($title);
+            $album->setAuthor($author);
+            $id = $this->getRepository()->save($album);
+
+            return $this->redirect([
+                "type"=>"album",
+                "action"=>"index",
+            ]);
+        }
+        return $this->render('album/create', [
+            'album' => $album,
+        ]);
+    }
 }

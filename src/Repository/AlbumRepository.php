@@ -21,5 +21,15 @@ class AlbumRepository extends Repository
 
         return $album->getId();
     }
+    public function save(Album $album): int
+    {
+        $query = $this->pdo->prepare("INSERT INTO album (title, author) VALUES (:title, :author)");
+        $query->execute([
+            'title' => $album->getTitle(),
+            'author' => $album->getAuthor(),
+        ]);
+        $id  = $this->pdo->lastInsertId();
+        return $id;
+    }
 
 }
