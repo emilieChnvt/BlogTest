@@ -34,13 +34,13 @@ use Core\Session\Session;
                     <a class="nav-link" href="?type=album&action=create">New Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?type=security&action=login">Sign In</a>
+                    <a class="nav-link" href="?type=user&action=login">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?type=security&action=register">Sign Up</a>
+                    <a class="nav-link" href="?type=user&action=register">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?type=security&action=logOut">Sign Out</a>
+                    <a class="nav-link" href="?type=user&action=logOut">Sign Out</a>
                 </li>
                 <span><strong><?php
                         if(Session::get("user")) :  ?>
