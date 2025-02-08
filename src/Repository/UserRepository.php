@@ -26,4 +26,6 @@ class UserRepository extends Repository
         ]);
         return $this->find($this->pdo->lastInsertId());
     }
+
+
 }

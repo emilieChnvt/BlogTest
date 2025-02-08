@@ -53,6 +53,7 @@ class UserController extends Controller
             $name=$_POST['name'];
             $password=$_POST['password'];
         }
+
         if($name && $password){
             $registeredUser = $this->getRepository()->findByUsername($name);
             if(!$registeredUser){
@@ -61,8 +62,8 @@ class UserController extends Controller
                     'action' => 'login'
                 ]);
             }
-            $success = $registeredUser->login($password);
-            if($success){
+            $success = $registeredUser->logIn($password);
+            if(!$success){
             return $this->redirect([
                 'type' => 'user',
                 'action' => 'login'
