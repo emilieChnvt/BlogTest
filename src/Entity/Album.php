@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AlbumRepository;
+use App\Repository\CommentRepository;
 use Attributes\TargetRepository;
 use Core\Attributes\Table;
 
@@ -52,6 +53,12 @@ class Album
     public function setAuthor($author): void
     {
         $this->author = $author;
+    }
+
+    public function getComments():array
+    {
+        $commentRepository = new CommentRepository();
+        return $commentRepository->findAllByAlbum($this);
     }
 
 

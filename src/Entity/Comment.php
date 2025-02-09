@@ -2,16 +2,19 @@
 
 namespace App\Entity;
 
+use App\Repository\CommentRepository;
+use Attributes\TargetRepository;
 use Core\Attributes\Table;
 
 #[Table(name: 'comments')]
+#[TargetRepository(repoName: CommentRepository::class)]
 class Comment
 {
     private int $id;
 
     private string $comment;
 
-    private string $post_id;
+    private string $album_id;
 
     public function getId(): int
     {
@@ -28,14 +31,14 @@ class Comment
         $this->comment = $comment;
     }
 
-    public function getPostId(): string
+    public function getAlbumId(): string
     {
-        return $this->post_id;
+        return $this->album_id;
     }
 
-    public function setPostId(string $post_id): void
+    public function setPostId(string  $album_id): void
     {
-        $this->post_id = $post_id;
+        $this->album_id = $album_id;
     }
 
 }
