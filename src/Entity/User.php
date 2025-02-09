@@ -7,14 +7,15 @@ use App\Repository\UserRepository;
 use Attributes\DefaultEntity;
 use Attributes\TargetRepository;
 use Core\Attributes\Table;
+use Core\Security\UserManagement;
 
 #[Table(name: 'user')]
 #[TargetRepository(repoName: UserRepository::class)]
-class User
+class User extends UserManagement
 {
-    private int $id;
+    protected int $id;
     private string $name;
-    private string $password;
+    protected string $password;
 
     public function getName(): string
     {
@@ -31,14 +32,13 @@ class User
         return $this->password;
     }
 
-    public function setPassword(string $password): void
-    {
-        $this->password = $password;
-    }
-
     public function getId(): int
     {
         return $this->id;
     }
 
+    public function getAuthenticator() :string
+    {
+        return $this->name;
+    }
 }

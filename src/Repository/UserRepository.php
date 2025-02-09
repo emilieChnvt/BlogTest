@@ -10,10 +10,11 @@ use Core\Repository\Repository;
 class UserRepository extends Repository
 {
 
-    public function findByUsername(string $name)
+    public function findByUsername(string $name): User | bool
     {
         $query = $this->pdo->prepare('SELECT * FROM user WHERE name = :name');
         $query->execute(['name' => $name]);
+        $query->setFetchMode(\PDO::FETCH_CLASS, User::class);
         return $query->fetch();
     }
 
