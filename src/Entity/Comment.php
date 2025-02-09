@@ -31,12 +31,12 @@ class Comment
         $this->comment = $comment;
     }
 
-    public function getAlbumId(): string
+    public function getAlbumId(): int
     {
         return $this->album_id;
     }
 
-    public function setPostId(string  $album_id): void
+    public function setAlbumId(string  $album_id): void
     {
         $this->album_id = $album_id;
     }
